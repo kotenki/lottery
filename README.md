@@ -1,2 +1,1 @@
-as
-asdsadad
+Etherium contract lottery
