@@ -70,8 +70,20 @@ describe('Lottery contract', () => {
             from: account[0],
             value: 10
             });
+            assert(false);
         } catch (err) {
-            assert.ok(err);
+            assert(err);
+        }
+    });
+
+    it('allows to pick up a winner to a manager only', async () => {
+        try {
+            await lottery.methods.pickWinner().send({
+                from: accounts[1]
+            });
+            assert(false);
+        } catch (err) {
+            assert(err);
         }
     });
 
