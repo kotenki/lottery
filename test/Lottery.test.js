@@ -58,8 +58,8 @@ describe('Lottery contract', () => {
         });
 
         assert.equal(accounts[0], players[0]);
-        assert.equal(accounts[1], players[2]);
-        assert.equal(accounts[1], players[2]);
+        assert.equal(accounts[1], players[1]);
+        assert.equal(accounts[2], players[2]);
         assert.equal(3, players.length);
 
     });
