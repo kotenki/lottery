@@ -67,7 +67,7 @@ describe('Lottery contract', () => {
     it('requires a min amount ether to enter', async () => {
         try {
         await lottery.methods.enter().send({
-            from: account[0],
+            from: accounts[0],
             value: 10
             });
             assert(false);
@@ -94,14 +94,15 @@ describe('Lottery contract', () => {
         });
 
         const initialBalance = await web3.eth.getBalance(accounts[0]);
-
         await lottery.methods.pickWinner().send({ from: accounts[0] });
-
         const finalBalance = await web3.eth.getBalance(accounts[0]);
-
         const difference = finalBalance - initialBalance; 
-        console.log(difference);
+
         assert(difference > web3.utils.toWei('1.8', 'ether'))
+        console.log(players.length);
+        console.log(web3.eth.getBalance(lottery.options.address));
+        assert(players.length == 0);
+        assert(web3.eth.getBalance(lottery.options.address) == 0);
     });
 
 });
