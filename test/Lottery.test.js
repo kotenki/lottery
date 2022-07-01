@@ -104,9 +104,11 @@ describe('Lottery contract', () => {
             from: accounts[0]
         });
         console.log(players.length);
-        console.log(web3.eth.getBalance(lottery.options.address));
         assert(players.length == 0);
-        assert(web3.eth.getBalance(lottery.options.address) == 0);
+        const contractEndBalance = await web3.eth.getBalance(lottery.options.address);
+        console.log(contractEndBalance);
+
+        assert( contractEndBalance == 0);
     });
 
 });
