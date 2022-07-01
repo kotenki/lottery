@@ -99,6 +99,10 @@ describe('Lottery contract', () => {
         const difference = finalBalance - initialBalance; 
 
         assert(difference > web3.utils.toWei('1.8', 'ether'))
+
+        const players = await lottery.methods.getPlayers().call({
+            from: accounts[0]
+        });
         console.log(players.length);
         console.log(web3.eth.getBalance(lottery.options.address));
         assert(players.length == 0);
