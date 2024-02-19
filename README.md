@@ -1,1 +1,1 @@
-Etherium contract lottery
+Lottery (Etherium contract)
